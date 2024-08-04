@@ -101,17 +101,19 @@ static void win_alloc_color(const win_env_t *e, const char *name, XColor *col)
 
 static const char *win_res(XrmDatabase db, const char *name, const char *def)
 {
-	char *type;
-	XrmValue ret;
-
-	if (db != NULL &&
-	    XrmGetResource(db, name, name, &type, &ret) &&
-	    STREQ(type, "String") && *ret.addr != '\0')
-	{
-		return ret.addr;
-	} else {
-		return def;
-	}
+	return def;
+	
+// 	char *type;
+// 	XrmValue ret;
+// 
+// 	if (db != NULL &&
+// 	    XrmGetResource(db, name, name, &type, &ret) &&
+// 	    STREQ(type, "String") && *ret.addr != '\0')
+// 	{
+// 		return ret.addr;
+// 	} else {
+// 		return def;
+// 	}
 }
 
 void win_init(win_t *win)
